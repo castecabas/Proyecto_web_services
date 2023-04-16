@@ -32,7 +32,7 @@ public class Cliente implements Serializable{
 	 private String apellido;
 	 
 	 @Email(message="debe ser bien estructurada el email")
-	 @Column(nullable=false,unique=true)
+	 @Column(nullable=false,unique=true,name="EMAIL")
 	 private String correo;
 	 
 	 @Column(name="create_at")

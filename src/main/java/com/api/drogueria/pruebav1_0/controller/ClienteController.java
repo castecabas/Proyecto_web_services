@@ -33,7 +33,7 @@ public class ClienteController {
 	private ClienteService clienteService;
 	
 	
-	/* CONTINUAR*/
+	// CONTROLADORES URL
 	
 	@GetMapping("/Lista-clientes")
 	public List<Cliente> getAll()
@@ -48,6 +48,7 @@ public class ClienteController {
 		
 	}
 	
+	//CREAR
 	@PostMapping("/Lista-clientes/actualizar")
 	public ResponseEntity<?> Crear(@Valid @RequestBody Cliente cliente, BindingResult result)  //responseentity podemos incluir respuesta de Status ("error 200-300-400...etc") 
 	{																							//valid es para cumplir con las anotaciones que colocamos en la tabla (notempty ,email ,size )
@@ -63,14 +64,20 @@ public class ClienteController {
 			response.put("errors", errors);
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.BAD_REQUEST);
 		}
-
-		try {
+		
+		//si no hay errores, entonces:
+		try 
+		{
 			clienteNew = this.clienteService.GuardarCliente(cliente);
-		} catch (DataAccessException e) {
-			response.put("mensaje", "Error al realizar el insert en la base de datos");
+		} 
+		//puede ser sensible en el proceso de guardado,entonces si pasa algo:
+		catch (DataAccessException e) {
+			response.put("mensaje", "Error al realizar un INSERT en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));
 			return new ResponseEntity<Map<String, Object>>(response, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
+		
+		//mensaje de si el INSERT se realizo con exito
 		response.put("mensaje", "El cliente ha sido creado con éxito!");
 		response.put("cliente", clienteNew);
 
@@ -78,16 +85,17 @@ public class ClienteController {
 		
 	}
 	
-	
-	@PutMapping("/Lista-clientes/{ID}")	
-	public ResponseEntity<?> update(@Valid @RequestBody Cliente cliente,BindingResult result,@PathVariable  Long id){
+	//ACTUALIZAR
+	@PutMapping("/Lista-clientes/actualizar/{ID}")	
+	public ResponseEntity<?> update(@Valid @RequestBody Cliente cliente,BindingResult result,@PathVariable Long ID){
 		
-		Cliente currentCliente=this.clienteService.FindbyID(id);
+		Cliente currentCliente=this.clienteService.FindbyID(ID);
 		
 		Cliente updateCliente=null;
 		
         Map<String, Object> response=new HashMap<>();
 		
+        // SI TENIA ERRORES
 		if(result.hasErrors()) {		
 			List<String> errors= result.getFieldErrors()
 					.stream()
@@ -99,32 +107,40 @@ public class ClienteController {
 		
 		}
 		
+		// si el cliente en la lista NO EXISTE
 		if(currentCliente==null){
-			response.put("mensaje", "Error: no se puede editar, el cliente ID: ".concat(id.toString())
+			response.put("mensaje", "Error: no se puede editar, el cliente ID: ".concat(ID.toString())
 					.concat(" no existe en la base de datos"));
 			return new ResponseEntity<Map<String,Object>>(response,HttpStatus.NOT_FOUND);		   
 			
 		}
 		
+		
+		// SI FUE CON EXITO
 		try{
 			currentCliente.setNombre(cliente.getNombre());
 			currentCliente.setApellido(cliente.getApellido());
 			currentCliente.setCorreo(cliente.getCorreo());
 			updateCliente=this.clienteService.GuardarCliente(currentCliente);
 			
-		}catch(DataAccessException e){
+		}
+		// SI pasa algo mientras se actualiza
+		catch(DataAccessException e){
 			response.put("mensaje", "Error al actulizar en la base de datos");
 			response.put("error", e.getMessage().concat(": ").concat(e.getMostSpecificCause().getMessage()));	
 			return new ResponseEntity<Map<String,Object>>(response,HttpStatus.INTERNAL_SERVER_ERROR);
 			
 		}
-		response.put("mensaje","El cliente ha sido actulizado con éxito!");
+		
+		//mensaje final
+		response.put("mensaje","El cliente ha sido modificado con éxito!");
 		response.put("cliente", updateCliente);		
 		return new ResponseEntity<Map<String,Object>>(response,HttpStatus.CREATED);	
 		
 	}
 	
-	@DeleteMapping("/clientes/{id}")
+	// ELIMINAR
+	@DeleteMapping("/Lista-clientes/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public ResponseEntity<?> delete(@PathVariable Long id){
 		
