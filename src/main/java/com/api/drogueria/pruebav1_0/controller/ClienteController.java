@@ -21,7 +21,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.api.drogueria.pruebav1_0.model.Cliente;
+import com.api.drogueria.pruebav1_0.model.Factura;
+import com.api.drogueria.pruebav1_0.model.Producto;
+import com.api.drogueria.pruebav1_0.model.Region;
 import com.api.drogueria.pruebav1_0.service.ClienteService;
+import com.api.drogueria.pruebav1_0.service.ClienteService_IMP;
 
 import jakarta.validation.Valid;
 
@@ -159,5 +163,11 @@ public class ClienteController {
 		 response.put("mensaje", "El cliente eliminado con éxito");		 
 		 return new ResponseEntity<Map<String,Object>>(response,HttpStatus.OK);
 		
+	}
+	
+	@GetMapping("/Lista-clientes/regiones")
+	public List<Region> listarRegiones()
+	{
+		return clienteService.findAllRegiones();
 	}
 }
