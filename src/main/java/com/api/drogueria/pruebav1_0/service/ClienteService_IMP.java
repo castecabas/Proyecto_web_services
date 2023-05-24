@@ -92,6 +92,14 @@ public class ClienteService_IMP implements ClienteService{
 		return CRepository.findAllRegiones();
 	}
 
+	@Override
+	public List<Producto> FiltrarProducto(String term) {
+	
+		return PRepository.findByNombreContainingIgnoreCase(term);
+	}
+
+	
+
 	
 	
 	

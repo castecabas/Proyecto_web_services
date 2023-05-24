@@ -15,7 +15,7 @@ public class Producto implements Serializable {
 	private Long ID_producto;
 	
 	@NotEmpty
-	@Column(nullable=false)
+	@Column(nullable=false,name="Nombre")
 	private String Nombre;
 	
 	private Integer Precio;
@@ -30,12 +30,23 @@ public class Producto implements Serializable {
 	 
 	/* ================= GET y SET===================== */
 	
+	
 	@PrePersist
 	public void prePersist() {
 		this.create_at = new Date();
 	}
 	
 	
+	public String getNombre() {
+		return Nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		Nombre = nombre;
+	}
+
+
 	public Long getID_producto() {
 		return ID_producto;
 	}
@@ -50,15 +61,6 @@ public class Producto implements Serializable {
 
 	public void setNombre_producto(String nombre_producto) {
 		Nombre = nombre_producto;
-	}
-
-	public String getNombre() {
-		return Nombre;
-	}
-
-
-	public void setNombre(String nombre) {
-		Nombre = nombre;
 	}
 
 
@@ -79,6 +81,8 @@ public class Producto implements Serializable {
 	public void setCreate_at(Date create_at) {
 		this.create_at = create_at;
 	}
+	
+	
 	
 	private static final long serialVersionUID = 1L;
 }

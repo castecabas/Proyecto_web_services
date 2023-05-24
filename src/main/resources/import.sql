@@ -24,9 +24,32 @@ INSERT INTO clientes (region_id,nombre, apellido, correo, create_at) VALUES(8,'J
 
 INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Val',500,'2020-05-04');
 INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('H&S',1200,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('CAFI Aspirina',4200,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Alka-seltzer X 60',60000,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Apronax X50 275Mg',28000,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Cicatricure X 60 Gr',60000,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('X-Ray Gel 30 Gr',28000,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Lubriderm X 200Ml',17000,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Gaviscon Doble X 300Ml',60000,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Dolex X 90Ml',15000,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Asepxia Gen X50 Gr',18000,NOW());
 
 INSERT INTO Facturas (Cliente_id,descripcion,Tipo_entrega,create_at) VALUES (1,'Medicamentos Basicos','Efectivo',NOW());
+INSERT INTO Facturas_Producto(factura_id,Cantidad,producto_id) VALUES(1,3,2);
+INSERT INTO Facturas_Producto(factura_id,Cantidad,producto_id) VALUES(1,10,1);
 
-INSERT INTO Facturas_Producto(Cantidad,factura_id,producto_id) VALUES(3,1,2);
+INSERT INTO Facturas (Cliente_id,descripcion,Tipo_entrega,create_at) VALUES (2,'Medicamentos Basicos','Tarjeta de Crédito',NOW());
+INSERT INTO Facturas_Producto(factura_id,Cantidad,producto_id) VALUES(2,1,2);
+INSERT INTO Facturas_Producto(factura_id,Cantidad,producto_id) VALUES(2,4,10);
+INSERT INTO Facturas_Producto(factura_id,Cantidad,producto_id) VALUES(2,3,5);
+INSERT INTO Facturas_Producto(factura_id,Cantidad,producto_id) VALUES(2,1,6);
 
+INSERT INTO Facturas (Cliente_id,descripcion,Tipo_entrega,create_at) VALUES (3,'Medicamentos Basicos','Efectivo',NOW());
+INSERT INTO Facturas_Producto(factura_id,Cantidad,producto_id) VALUES(3,1,7);
 
+INSERT INTO Facturas (Cliente_id,descripcion,Tipo_entrega,create_at) VALUES (4,'Medicamentos Basicos','Eectivo',NOW());
+INSERT INTO Facturas_Producto(factura_id,Cantidad,producto_id) VALUES(4,3,5);
+INSERT INTO Facturas_Producto(factura_id,Cantidad,producto_id) VALUES(4,3,8);
+
+INSERT INTO Facturas (Cliente_id,descripcion,Tipo_entrega,create_at) VALUES (5,'Medicamentos Basicos','Tarjeta de Crédito',NOW());
+INSERT INTO Facturas_Producto(factura_id,Cantidad,producto_id) VALUES(5,10,9);

@@ -29,6 +29,8 @@ public class Item_Factura implements Serializable{
 	
 	 /* ================= GET y SET===================== */
 	
+	
+	
 	public Double getImporte()
 	{
 		return this.Cantidad*(double)this.producto.getPrecio();

@@ -24,9 +24,8 @@ public class Factura implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date create_at;
 	
-	
-	
-	
+
+
 	/* ================= RELACIONES ==================== */
 	@JsonIgnoreProperties(value={"facturas","hibernateLazyInitializer","handler"},allowSetters=true)
 	@ManyToOne(fetch=FetchType.LAZY)
@@ -45,6 +44,7 @@ public class Factura implements Serializable{
 	{
 		this.items=new ArrayList<>();
 	}
+	
 	
 	public List<Item_Factura> getItems() {
 		return items;

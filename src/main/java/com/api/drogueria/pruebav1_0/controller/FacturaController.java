@@ -13,17 +13,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.api.drogueria.pruebav1_0.model.Factura;
 import com.api.drogueria.pruebav1_0.model.Producto;
-import com.api.drogueria.pruebav1_0.service.ClienteService_IMP;
-
+import com.api.drogueria.pruebav1_0.repository.ProductoRepository;
+import com.api.drogueria.pruebav1_0.service.ClienteService;
 
 @RestController
 @RequestMapping("/api")
 public class FacturaController {
 
 	@Autowired
-	private ClienteService_IMP clienteService;
+	private ClienteService clienteService;
 	
-	@GetMapping("/facturas/{id}")
+	@GetMapping("/facturas/{ID}")
 	@ResponseStatus(HttpStatus.OK)
 	public Factura show(@PathVariable Long ID)
 	{
@@ -37,7 +37,7 @@ public class FacturaController {
 		return clienteService.findAllFacturas();
 	}
 	
-	@DeleteMapping("/facturas/{id}")
+	@DeleteMapping("/facturas/{ID}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void delete(@PathVariable Long ID)
 	{
@@ -45,11 +45,24 @@ public class FacturaController {
 	}
 	
 	
-	
 	@PostMapping("/facturas")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Factura Crear(@RequestBody Factura factura)
 	{
 		return clienteService.saveFactura(factura);
+	}
+	
+	@GetMapping("/facturas/filtrar-productos/{term}")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Producto> FiltrarProductos(@PathVariable String term)
+	{
+		return clienteService.FiltrarProducto(term);
+	}
+	
+	@GetMapping("/facturas/productos")
+	@ResponseStatus(HttpStatus.OK)
+	public List<Producto> Producto()
+	{
+		return clienteService.findAllProducto();
 	}
 }
