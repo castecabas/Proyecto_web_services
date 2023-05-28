@@ -30,7 +30,7 @@ public class Cliente implements Serializable{
 	 @Id
 	 @GeneratedValue(strategy=GenerationType.IDENTITY)
 	 private Long ID;
-	 
+	  
 	 @NotEmpty(message="No debe estar vacia el campo del nombre")
 	 @Size(min=3,max=30,message="debe ser el tamaño entre 3 y 30 letras")
 	 @Column(nullable=false,name="nombre")
