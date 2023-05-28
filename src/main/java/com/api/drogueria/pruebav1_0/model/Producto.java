@@ -12,7 +12,7 @@ public class Producto implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	private Long ID_producto;
+	private Long ID;
 	
 	@NotEmpty
 	@Column(nullable=false,name="Nombre")
@@ -47,20 +47,14 @@ public class Producto implements Serializable {
 	}
 
 
-	public Long getID_producto() {
-		return ID_producto;
+	
+	public Long getID() {
+		return ID;
 	}
 
-	public void setID_producto(Long iD_producto) {
-		ID_producto = iD_producto;
-	}
 
-	public String getNombre_producto() {
-		return Nombre;
-	}
-
-	public void setNombre_producto(String nombre_producto) {
-		Nombre = nombre_producto;
+	public void setID(Long iD) {
+		ID = iD;
 	}
 
 

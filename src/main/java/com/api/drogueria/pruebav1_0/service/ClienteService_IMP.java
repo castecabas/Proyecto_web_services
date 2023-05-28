@@ -98,6 +98,12 @@ public class ClienteService_IMP implements ClienteService{
 		return PRepository.findByNombreContainingIgnoreCase(term);
 	}
 
+	@Override
+	public Producto saveProducto(Producto NProducto) {
+		
+		return PRepository.save(NProducto);
+	}
+
 	
 
 	

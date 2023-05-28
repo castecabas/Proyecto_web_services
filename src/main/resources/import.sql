@@ -33,6 +33,16 @@ INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Lubriderm X 200Ml',1700
 INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Gaviscon Doble X 300Ml',60000,NOW());
 INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Dolex X 90Ml',15000,NOW());
 INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Asepxia Gen X50 Gr',18000,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Vitamina c MK naranja',41600,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Shot B suplemento',37900,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Centrum silter X30',36550,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Leche de magnesia',8150,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Lumbal forte',15180,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Bonfiest plus X6',19300,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Allegra 150ml',80750,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Genfar kids Cetirizina alergias 60ml',28750,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Pancreatina simeticona MK',61700,NOW());
+INSERT INTO Productos (Nombre,Precio,create_at) VALUES ('Mareol X12',8250,NOW());
 
 INSERT INTO Facturas (Cliente_id,descripcion,Tipo_entrega,create_at) VALUES (1,'Medicamentos Basicos','Efectivo',NOW());
 INSERT INTO Facturas_Producto(factura_id,Cantidad,producto_id) VALUES(1,3,2);

@@ -18,7 +18,7 @@ public interface ClienteService {
 	
 	public List<Region> findAllRegiones();
 	
-	
+	public Producto saveProducto(Producto NProducto);
 	public List<Producto> findAllProducto();
 	public List<Producto> FiltrarProducto(String term);
 	
