@@ -30,7 +30,9 @@ import com.api.drogueria.pruebav1_0.service.ClienteService_IMP;
 
 import jakarta.validation.Valid;
 
-@CrossOrigin(origins= {"http://localhost:4200"})
+//@CrossOrigin(origins= {"http://localhost:4200"})
+
+@CrossOrigin(origins= {"https://mi-primera-api-bq2r.onrender.com"})
 @RestController
 @RequestMapping("/api")
 public class ClienteController {
