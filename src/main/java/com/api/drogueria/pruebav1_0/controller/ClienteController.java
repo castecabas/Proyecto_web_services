@@ -32,8 +32,9 @@ import jakarta.validation.Valid;
 
 //@CrossOrigin(origins= {"http://localhost:4200"})
 
-@CrossOrigin(origins= {"https://mi-api-frontend-web-services.web.app"})
+
 @RestController
+@CrossOrigin(origins= {"https://mi-api-frontend-web-services.web.app"})
 @RequestMapping("/api")
 public class ClienteController {
 	
