@@ -20,7 +20,7 @@ import jakarta.validation.Valid;
 
 //CrossOrigin(origins= {"http://localhost:4200"})
 
-@CrossOrigin(origins= {"https://mi-primera-api-bq2r.onrender.com"})
+@CrossOrigin(origins= {"https://mi-api-frontend-web-services.web.app"})
 @RestController
 @RequestMapping("/api")
 public class FacturaController {
