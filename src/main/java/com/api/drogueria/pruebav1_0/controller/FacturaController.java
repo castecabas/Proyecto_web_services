@@ -18,7 +18,7 @@ import com.api.drogueria.pruebav1_0.service.ClienteService;
 
 import jakarta.validation.Valid;
 
-//CrossOrigin(origins= {"http://localhost:4200"})
+//@CrossOrigin(origins= {"http://localhost:4200"})
 
 @CrossOrigin(origins= {"https://mi-api-frontend-web-services.web.app"})
 @RestController
