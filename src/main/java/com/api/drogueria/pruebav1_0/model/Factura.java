@@ -18,6 +18,9 @@ public class Factura implements Serializable{
 	@Column(name="tipo_entrega")
 	private String Tipo_entrega;
 	
+	
+
+
 	@Column(name="descripcion")
 	private String descripcion;
 	
@@ -40,7 +43,15 @@ public class Factura implements Serializable{
 	private List<Item_Factura> items;
 	 /* ================= GET y SET===================== */
 	
-	
+	public Cliente getCliente() {
+		return Cliente;
+	}
+
+
+	public void setCliente(Cliente cliente) {
+		Cliente = cliente;
+	}
+
 	
 	public Factura()
 	{
