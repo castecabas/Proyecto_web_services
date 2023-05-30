@@ -14,6 +14,7 @@ public class Item_Factura implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private long id;
 	
+	@Column(name="cantidad")
 	private Integer Cantidad;
 	
 	

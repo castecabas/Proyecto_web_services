@@ -15,9 +15,10 @@ public class Producto implements Serializable {
 	private Long ID;
 	
 	@NotEmpty
-	@Column(nullable=false,name="Nombre")
+	@Column(nullable=false,name="nombre")
 	private String Nombre;
 	
+	@Column(name="precio")
 	private Integer Precio;
 	
 	@Column(name="create_at")
