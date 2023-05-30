@@ -41,6 +41,13 @@ public class ClienteController {
 	@Autowired
 	private ClienteService clienteService;
 	
+	@GetMapping("")
+	public String index() {
+		String a="rutas: /Lista-clientes"+" /Lista-clientes/{ID}"
+				+ "	/facturas"+ " /facturas/productos";
+				
+		return a;
+	}
 	 
 	// CONTROLADORES URL
 	
